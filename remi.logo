@@ -1,0 +1,17 @@
+red 
+
+do mn_eck 36 20
+
+def n_eck ne sz {
+    repeat ne {
+        right 360 / ne 
+        forward sz
+    }
+}
+
+def mn_eck ne sz {
+    repeat ne {
+        right 360 / ne 
+        do n_eck ne sz
+    }
+}

@@ -1,0 +1,81 @@
+set r 70
+set w 7
+
+blue
+do boldCircle -150 40 r w
+
+yellow 
+do boldCircle  -75 (-40) r w
+
+black 
+do boldCircle 0 40 r w
+
+green
+do boldCircle 75 (-40) r w
+
+red
+do boldCircle 150 40 r w
+
+blue
+do boldArch -150 40 r w (-120) (-66) 0 40
+
+yellow
+do boldArch -75 (-40) r w (-75) 0 0 40
+
+black 
+do boldArch 0 40 r w 0 75 0 40
+
+green 
+do boldArch 75 (-40) r w 78 120 0 40
+
+jump 0 800
+
+def circle x y r {
+    set pi 3.14
+    set step 2*r
+    jump x + r y
+    face 90 + 180/step
+    repeat step {
+         forward r*2*pi/step
+         left 360/step
+    }
+}
+
+def boldCircle x y r w {
+    set r1 r - w/2
+    set delta 0.1
+    while r1 < r + w/2 {
+         do circle x y r1
+         set r1 r1 + delta
+    }
+}
+
+def arch x y r x1 x2 y1 y2 {
+    set pi 3.14
+    set step 2*r
+    jump x + r y
+    face 90 + 180/step
+    repeat step {
+         penup
+         if getX > x1 {
+             if getX < x2 {
+                 if getY > y1 {
+                     if getY < y2 {
+                         pendown
+                     }
+                 }
+             }
+         }
+         forward r*2*pi/step
+         left 360/step
+    }
+}
+
+def boldArch x y r w x1 x2 y1 y2 {
+    set r1 r - w/2
+    set delta 0.2
+    while r1 < r + w/2 {
+         do arch x y r1 x1 x2 y1 y2 
+         set r1 r1 + delta
+    }
+}

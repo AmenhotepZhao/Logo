@@ -1,0 +1,46 @@
+set pi 3.14
+purple
+do lines 3 10 250
+orange
+do curves  7 10 250
+red
+do lines 0 10 200
+blue
+do curves  0 10 200
+yellow
+do lines 5 10 100
+green
+do curves  5 10 100
+
+def curves degreeStart degree radius {
+    set angle degreeStart
+    repeat 360 / degree {
+        do curve angle radius 
+        set angle angle + degree  
+    }
+}
+
+def lines degreeStart degree length {
+    set angle degreeStart
+    repeat 360 / degree {
+        do line angle length
+        set angle angle + degree  
+    }
+}
+
+def line degree length {
+    home 
+    face degree
+    forward length
+}
+
+def curve degree radius {
+    home 
+    face degree
+    set n 10
+    set angle pi/3/n
+    repeat n {
+        forward angle*radius
+        right 60/n
+    }
+}

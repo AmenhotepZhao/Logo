@@ -1,0 +1,18 @@
+red
+
+do triangle 400
+
+home
+
+def triangle l {
+    jump 0 1.732/3*l
+    face -60
+    forward l
+    right 120
+    forward l
+    right 120
+    forward l
+    if l > 10 {
+        do triangle l-20
+    }
+}

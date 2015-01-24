@@ -1,0 +1,16 @@
+red
+do drawSquares 100 15
+
+def drawSquares side degree {
+    repeat 360 / degree {
+        do square side
+        right degree
+    }
+}
+
+def square side {
+    repeat 4 {
+        forward side
+        right 90
+    }
+}

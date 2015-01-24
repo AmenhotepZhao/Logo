@@ -1,0 +1,43 @@
+home
+
+penup
+left 90
+forward 100
+
+pendown
+red
+right 162
+repeat 5 {
+  forward 190.2
+  right 144
+}
+
+face -36
+blue
+set i 0
+while i < 5 {
+  forward 117.56
+  right 72
+  set i i+1
+}
+
+
+color 50 100 150
+set pi 3.1415926
+set n 25
+face 180 + 180/n
+set i 0
+while n > i {
+  if getY > getX {
+    color 200 120 180
+  }
+  else {
+    yellow
+  }
+  forward 100*2*pi/n
+  left 360/n
+  set i i+1
+}
+
+jump 100 100
+

@@ -1,0 +1,19 @@
+do triangle  0 0 255
+
+home
+
+def triangle x y l {
+    color 255-l 255-l 255-l
+    jump x y + 1.732/3*l
+    face -60
+    forward l
+    right 120
+    forward l
+    right 120
+    forward l
+    if l > 30 {
+        do triangle x y + 1.732/3*l l/2
+        do triangle x + l/2 y - 1.732/6*l l/2
+        do triangle x - l/2 y - 1.732/6*l l/2
+    }
+}
